@@ -3,3 +3,7 @@ venv
 .idea
 *.env
 __pycache__
+logs
+static
+media
+temp
