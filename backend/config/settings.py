@@ -15,6 +15,7 @@ HOST_NAME = env('HOST_NAME', default='http://localhost')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 INSTALLED_APPS = [
+    # --------- Django ----------
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,5 +86,9 @@ USE_TZ = True
 
 STATIC_URL = f'{HOST_NAME}/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = f'{HOST_NAME}/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+IMAGES_DIR = MEDIA_ROOT / 'images'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

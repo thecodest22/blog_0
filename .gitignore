@@ -7,3 +7,5 @@ logs
 static
 media
 temp
+db_dumps
+pgadmin_dumps
