@@ -96,3 +96,20 @@ MEDIA_ROOT = BASE_DIR / 'media'
 IMAGES_DIR = MEDIA_ROOT / 'images'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ('console',),
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+}

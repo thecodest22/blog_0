@@ -1,0 +1,66 @@
+[project]
+name = "blog0"
+version = "0.1.0"
+description = "Sample of a blog"
+authors = [
+    { name = "codest", email = "thecodest@ya.ru" }
+]
+dependencies = [
+    "django>=5.0.6",
+    "django-environ>=0.11.2",
+    "django-treebeard>=4.7.1",
+    "psycopg[binary]>=3.1.18",
+    "pillow>=10.3.0",
+]
+requires-python = ">= 3.12"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = [
+    "flake8-isort>=6.1.1",
+    "flake8-pyproject>=1.2.3",
+    "coverage[toml]>=7.5.1",
+]
+
+[tool.rye.scripts]
+test = { cmd = "./manage.py test" }
+cov = { cmd = "coverage run --source='.' ./manage.py test" }
+report = { cmd = "coverage report" }
+
+[tool.flake8]
+exclude = [
+    ".env/",
+    ".venv/",
+    "env/",
+    "venv/",
+    "logs/",
+    "media/",
+    "src/",
+    "static/",
+    "*/migrations/",
+    "temp/",
+]
+max-complexity = 10
+
+[tool.isort]
+profile = "django"
+py_version = 312
+skip_glob = ["*/migrations/*"]
+known_django = "django"
+known_drf = "rest_framework"
+known_first_party = ["."]
+known_local_folder = ["blog_0", "config"]
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "DJANGO",
+    "DRF",
+    "THIRDPARTY",
+    "FIRSTPARTY",
+    "LOCALFOLDER"
+]
+verbose = true
+
+[tool.coverage.run]
+omit = ["*/migrations/*", "__init__.py", "config/*", "manage.py"]

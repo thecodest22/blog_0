@@ -1,10 +1,23 @@
+from __future__ import annotations
+from datetime import date
+
 from django.db import models
 from django.conf import settings
 from django.contrib.postgres.indexes import BrinIndex
 from django.core.validators import FileExtensionValidator
 from django.db.models.functions import Now, Upper
-
 from treebeard.mp_tree import MP_Node
+
+
+def get_image_upload_path(instance: Post, filename: str) -> str:
+    """
+    Возвращает путь к загруженному файлу на основе имени юзера и текущей даты.
+    """
+
+    username = getattr(getattr(instance, 'author', None), 'username', 'noname')
+
+    return (f'posts/{username}/ + {date.today().strftime("%Y/%m/%d/")}'
+            f'{filename}')
 
 
 class Post(models.Model):
@@ -29,17 +42,17 @@ class Post(models.Model):
         verbose_name='Краткое описание',
         max_length=255,
         blank=True,
-        null=True
+        default=''
     )
     content = models.TextField(
         verbose_name='Содержимое поста',
     )
     picture = models.ImageField(
         verbose_name='Изображение',
-        upload_to='posts/',
+        upload_to=get_image_upload_path,
         validators=(
             FileExtensionValidator(
-                allowed_extensions=['jpg', 'jpeg', 'png', 'webp', 'gif']
+                allowed_extensions=('jpg', 'jpeg', 'png', 'webp', 'gif')
             ),
         ),
         blank=True
@@ -52,13 +65,12 @@ class Post(models.Model):
     )
     created_at = models.DateTimeField(
         verbose_name='Опубликован',
-        auto_now_add=True,
         db_default=Now(),
+        editable=False
     )
     updated_at = models.DateTimeField(
         verbose_name='Обновлен',
-        auto_now=True,
-        db_default=Now(),
+        auto_now=True
     )
     is_fixed = models.BooleanField(
         verbose_name='Зафиксирован',
@@ -97,10 +109,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-    def save(self, **kwargs):
-        print(1)
-        super().save(**kwargs)
 
 
 class Section(MP_Node):
