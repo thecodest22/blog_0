@@ -25,8 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # --------- Libs ----------
     'treebeard',
+    'django_cleanup',
     # --------- Apps ----------
-    'blog.apps.BlogConfig',
+    'blog',
 ]
 
 MIDDLEWARE = [

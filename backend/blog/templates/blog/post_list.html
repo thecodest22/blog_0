@@ -1,21 +1,19 @@
 {% extends 'main.html' %}
 
 {% block title %}
-  Список постов
+  {{ title }}
 {% endblock title %}
 
 {% block content %}
-  {% for i_post in posts %}
-    <img
-      src="{{ i_post.picture.url }}"
-      alt="{{ i_post.title }}"
-      width="150"
-    >
+  {% for i_post in post_list %}
+    <img src="{{ i_post.picture.url }}" alt="{{ i_post.title }}" width="150">
     <strong>{{ i_post.title }}</strong>
     <p>{{ i_post.annotation }}</p>
     <small>{{ i_post.created_at }}</small>
     <hr>
     <span>{{ i_post.section.title }}</span>
+    <hr>
+    <a href="{{ i_post.get_absolute_url }}">Читать</a>
   {% endfor %}
 
 {% endblock content %}

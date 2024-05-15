@@ -7,6 +7,7 @@ from django.contrib.postgres.indexes import BrinIndex
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.db.models.functions import Now, Upper
+from django.urls import reverse
 
 from treebeard.mp_tree import MP_Node
 
@@ -111,6 +112,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', kwargs={'post_slug': self.slug})
 
 
 class Section(MP_Node):

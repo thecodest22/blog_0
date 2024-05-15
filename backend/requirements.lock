@@ -11,6 +11,7 @@ asgiref==3.8.1
     # via django
 django==5.0.6
     # via django-treebeard
+django-cleanup==8.1.0
 django-environ==0.11.2
 django-treebeard==4.7.1
 pillow==10.3.0
