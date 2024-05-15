@@ -25,7 +25,7 @@ class Post(models.Model):
     Модель поста в блоге.
     """
 
-    class PostStatusChoices(models.TextChoices):
+    class StatusChoices(models.TextChoices):
         PUBLISHED = 'PUBLISHED', 'Опубликовано'
         DRAFT = 'DRAFT', 'Черновик'
 
@@ -60,8 +60,8 @@ class Post(models.Model):
     status = models.CharField(
         verbose_name='Статус',
         max_length=10,
-        choices=PostStatusChoices,
-        default=PostStatusChoices.DRAFT
+        choices=StatusChoices,
+        default=StatusChoices.DRAFT
     )
     created_at = models.DateTimeField(
         verbose_name='Опубликован',
