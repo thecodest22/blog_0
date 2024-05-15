@@ -1,11 +1,13 @@
 from __future__ import annotations
+
 from datetime import date
 
-from django.db import models
 from django.conf import settings
 from django.contrib.postgres.indexes import BrinIndex
 from django.core.validators import FileExtensionValidator
+from django.db import models
 from django.db.models.functions import Now, Upper
+
 from treebeard.mp_tree import MP_Node
 
 
@@ -16,7 +18,7 @@ def get_image_upload_path(instance: Post, filename: str) -> str:
 
     username = getattr(getattr(instance, 'author', None), 'username', 'noname')
 
-    return (f'posts/{username}/ + {date.today().strftime("%Y/%m/%d/")}'
+    return (f'posts/{username}/{date.today().strftime("%Y/%m/%d/")}'
             f'{filename}')
 
 
