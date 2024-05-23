@@ -5,6 +5,7 @@ from django.urls import include, path
 from config import settings
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('', include('blog.urls.form_urls'))
 ]

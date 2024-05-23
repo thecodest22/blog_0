@@ -13,13 +13,18 @@ DEBUG = env('DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
 
 HOST_NAME = env('HOST_NAME', default='')
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+ALLOWED_HOSTS = env.tuple('ALLOWED_HOSTS', default=('localhost', '127.0.0.1'))
+
+if DEBUG:
+    INTERNAL_IPS = ('localhost', '127.0.0.1')
 
 INSTALLED_APPS = [
     # --------- Django ----------
+    'django.contrib.contenttypes',
+    'grappelli.dashboard',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -116,3 +121,5 @@ LOGGING = {
         },
     },
 }
+
+GRAPPELLI_INDEX_DASHBOARD = 'config.dashboard.CustomIndexDashboard'

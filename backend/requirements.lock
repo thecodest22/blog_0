@@ -13,6 +13,7 @@ django==5.0.6
     # via django-treebeard
 django-cleanup==8.1.0
 django-environ==0.11.2
+django-grappelli==4.0.1
 django-treebeard==4.7.1
 pillow==10.3.0
 psycopg==3.1.19
