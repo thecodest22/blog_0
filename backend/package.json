@@ -4,7 +4,7 @@
   "description": "A sample blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tail-dev": "tailwindcss -i ./src/css/input.css -o ./src/assets/css/output.css --watch"
   },
   "author": "codest",
   "license": "MIT",

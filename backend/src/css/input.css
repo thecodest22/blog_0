@@ -1,3 +1,132 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Montserrat Alternates ExLight';
+        src: url('../fonts/MontserratAlternates-ExtraLight.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-ExtraLight.woff') format('woff');
+        font-weight: 200;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-Black.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-Light.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-Light.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-Medium.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-Bold.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-ExtraBold.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-ExtraBold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-Regular.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat Alternates';
+        src: url('../fonts/MontserratAlternates-SemiBold.woff2') format('woff2'),
+        url('../fonts/MontserratAlternates-SemiBold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-BoldItalic.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-BoldItalic.woff') format('woff');
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-Bold.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-Regular.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-Italic.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-Italic.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-MediumItalic.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-MediumItalic.woff') format('woff');
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-Medium.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-SemiBoldItalic.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-SemiBoldItalic.woff') format('woff');
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Cormorant Infant';
+        src: url('../fonts/CormorantInfant-SemiBold.woff2') format('woff2'),
+        url('../fonts/CormorantInfant-SemiBold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+    }
+}

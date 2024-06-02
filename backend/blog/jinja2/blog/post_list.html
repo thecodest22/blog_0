@@ -8,7 +8,7 @@
   {% for i_post in post_list %}
     <img src="{{ i_post.picture.url }}" alt="{{ i_post.title }}" width="150">
     <strong>{{ i_post.title }}</strong>
-    <p class="text-3xl font-bold underline">{{ i_post.annotation }}</p>
+    <p class="font-serif text-3xl font-bold underline text-indigo-500">{{ i_post.annotation }}</p>
     <small>{{ i_post.created_at }}</small>
     <hr>
     <span>{{ i_post.section.title }}</span>
