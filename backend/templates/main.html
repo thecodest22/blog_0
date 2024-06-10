@@ -15,7 +15,14 @@
   </title>
 </head>
 <body>
+{% spaceless %}
+  <div class="">
+    <div class="bg-rose-100">
+      {% include 'includes/_navbar.html' %}
+    </div>
+  </div>
   {% block body %}
   {% endblock body %}
+{% endspaceless %}
 </body>
 </html>

@@ -29,13 +29,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # --------- Libs ----------
-    'treebeard',
     'django_cleanup',
+    'django_minify_html',
+    'treebeard',
     # --------- Apps ----------
     'blog',
 ]
 
 MIDDLEWARE = [
+    'config.middleware.ProjectMinifyHtmlMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +55,7 @@ TEMPLATES = [
         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
-            'environment': 'blog.jinja2.environment',
+            'environment': 'config.jinja2.environment',
         }
     },
     {
