@@ -7,16 +7,15 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="{{ static('img/favicon.png') }}">
-  <link rel="stylesheet" href="{{ static('css/output.css') }}">
+  <link rel="stylesheet" href="{{ static('css/build.css') }}">
   <title>
-    {% block title %}
-      Choco by Kira
+    {% block title required %}
     {% endblock title %}
   </title>
 </head>
 <body class="min-w-80 min-h-screen bg-[#F9F9F9] dark:bg-indigo-950 dark:text-white">
   {% include 'includes/header.html' %}  
-  {% block main %}
+  {% block main required %}
   {% endblock main %}
 </body>
 </html>

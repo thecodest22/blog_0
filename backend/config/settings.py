@@ -107,7 +107,11 @@ USE_TZ = True
 
 STATIC_URL = f'{HOST_NAME}/static/'
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = ['src/assets']
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR.parent / 'frontend/assets',
+        BASE_DIR.parent / 'frontend/build',
+    ]
 
 MEDIA_URL = f'{HOST_NAME}/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

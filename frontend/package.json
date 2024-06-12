@@ -1,0 +1,18 @@
+{
+  "name": "blog0",
+  "version": "1.0.0",
+  "description": "A sample blog",
+  "main": "index.js",
+  "scripts": {
+    "tail-dev": "tailwindcss -i ./src/css/input.css -o ./build/css/build.css --watch",
+    "p-check": "prettier --check ./templates",
+    "p-write": "prettier --write ./templates"
+  },
+  "author": "codest",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.3",
+    "tailwindcss": "^3.4.4"
+  }
+}
