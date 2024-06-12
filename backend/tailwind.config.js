@@ -10,9 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        '8xl': '90rem'
+      },
       fontFamily: {
         'sans': ['"Montserrat Alternates"', ...defaultTheme.fontFamily.sans],
-        'serif': ['"Cormorant Infant"', ...defaultTheme.fontFamily.serif],
+        'serif': ['"Cormorant Infant"', ...defaultTheme.fontFamily.serif]
       },
     },
   },

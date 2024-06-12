@@ -1,5 +1,97 @@
 <!-- BEGIN includes/navbar.html -->
 <nav class="relative z-20 w-full bg-black text-white">
-  {% include 'includes/navbar__mobile-menu_moving.html' %}
+  <!-- BEGIN includes/navbar__mobile-menu_moving.html -->
+<div
+  class="relative z-10 container mx-auto flex flex-wrap max-w-7xl items-center justify-between p-3 bg-inherit sm:p-6 lg:p-8"
+>
+  <a
+    href="javascript:void(0)"
+    class="font-serif text-2xl font-black"
+  >
+    ChocoKira
+  </a>
+  
+  <button
+    id="mobile-menu-button"
+    class="inline-flex size-10 items-center justify-center focus:outline-none focus:ring-2 focus:ring-white md:hidden"
+    type="button"
+  >
+    <svg
+      class="size-7"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<div
+  id="mobile-menu"
+  class="
+      absolute
+      bottom-px
+      left-0
+      container
+      transition-all
+      duration-500
+      transform
+      bg-inherit
+"
+>
+  <ul
+    class="font-medium flex flex-col px-2"
+  >
+    <li>
+      <a
+        href="javascript:void(0)"
+        class="block"
+      >
+        Test
+      </a>
+    </li>
+    <li>
+      <a
+        href="javascript:void(0)"
+        class="block"
+      >
+        Test
+      </a>
+    </li>
+    <li>
+      <a
+        href="javascript:void(0)"
+        class="block"
+      >
+        Test
+      </a>
+    </li>
+    <li>
+      <a
+        href="javascript:void(0)"
+        class="block"
+      >
+        Test
+      </a>
+    </li>
+    <li>
+      <a
+        href="javascript:void(0)"
+        class="block"
+      >
+        Test
+      </a>
+    </li>
+  </ul>
+</div>
+<script src="{{ static('js/navbar_moving.js') }}" defer></script>
+<!-- END includes/navbar__mobile-menu_moving.html -->
 </nav>
 <!-- END includes/navbar.html -->

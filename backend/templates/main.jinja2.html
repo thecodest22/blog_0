@@ -14,13 +14,9 @@
     {% endblock title %}
   </title>
 </head>
-<body class="min-h-screen bg-rose-100 dark:bg-[#703c40]">
-  <div class="">
-    <div class="bg-rose-100">
-      {% include 'includes/navbar.html' %}
-    </div>
-  </div>
-  {% block body required %}
-  {% endblock body %}
+<body class="min-w-80 min-h-screen bg-[#F9F9F9] dark:bg-indigo-950 dark:text-white">
+  {% include 'includes/header.html' %}  
+  {% block main %}
+  {% endblock main %}
 </body>
 </html>
