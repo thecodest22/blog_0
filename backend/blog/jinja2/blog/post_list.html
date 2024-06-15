@@ -2,24 +2,32 @@
 
 {% block title %}{{ title }}{% endblock title%}
 
-{% include 'includes/common-banner.html' %}
-
 {% block main %}
-<main class="mx-auto max-w-8xl">
-  <section class="flex ">
+  <div class="h-40 bg-cover" style="background-image: url({{ static('img/common-banner.jpg') }})"></div>
 
-  </section>
-  {% for i_post in post_list %}
-  <img src="{{ i_post.picture.url }}" alt="{{ i_post.title }}" width="150" />
-  <strong>{{ i_post.title }}</strong>
-  <p class="font-serif text-3xl font-bold text-indigo-500 underline">
-    {{ i_post.annotation }}
-  </p>
-  <small>{{ i_post.created_at }}</small>
-  <hr />
-  <span>{{ i_post.section.title }}</span>
-  <hr />
-  <a href="{{ i_post.get_absolute_url() }}">Читать</a>
-  {% endfor %}
+  <main class="mx-auto max-w-8xl">
+    <section class="grid grid-cols-1 gap-3 p-5">
+      <h1 class="text-xl font-semibold">Посты</h1>
+      {% for i_post in post_list %}
+        <article class="flex flex-wrap px-5 py-10 h-100 bg-indigo-500 bg-cover" {% if i_post.picture %} style="background-image: url({{ i_post.picture.url }})" {% endif %}>
+          <div class="flex basis-1/2 justify-start bg-amber-300">
+            <span>{{ i_post.section.title }}</span>
+          </div>
+          <div class="flex basis-1/2 justify-end bg-amber-700">
+            <span>{{ i_post.created_at.date() }}</span>
+          </div>
+{#          <img src="{{ i_post.picture.url }}" alt="{{ i_post.title }}" width="150" />#}
+{#          <strong>{{ i_post.title }}</strong>#}
+{#          <p class="font-serif text-3xl font-bold text-indigo-500 underline">#}
+{#            {{ i_post.annotation }}#}
+{#          </p>#}
+{#          <small>{{ i_post.created_at }}</small>#}
+{#          <hr />#}
+{#          <span>{{ i_post.section.title }}</span>#}
+{#          <hr />#}
+{#          <a href="{{ i_post.get_absolute_url() }}">Читать</a>#}
+        </article>
+      {% endfor %}
+    </section>
 </main>
 {% endblock main %}

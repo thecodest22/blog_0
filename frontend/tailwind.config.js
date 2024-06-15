@@ -11,6 +11,9 @@ module.exports = {
       maxWidth: {
         '8xl': '90rem'
       },
+      spacing: {
+        '100': '25rem',
+      },
       fontFamily: {
         'sans': ['"Montserrat Alternates"', ...defaultTheme.fontFamily.sans],
         'serif': ['"Cormorant Infant"', ...defaultTheme.fontFamily.serif]
