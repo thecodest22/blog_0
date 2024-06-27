@@ -18,6 +18,10 @@ module.exports = {
         'sans': ['"Montserrat Alternates"', ...defaultTheme.fontFamily.sans],
         'serif': ['"Cormorant Infant"', ...defaultTheme.fontFamily.serif]
       },
+      borderRadius: {
+        '3xl': '1.25rem',
+        '4xl': '1.5rem',
+      },
     },
   },
   plugins: [],

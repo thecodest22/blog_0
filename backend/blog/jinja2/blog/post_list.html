@@ -7,25 +7,78 @@
 
   <main class="mx-auto max-w-8xl">
     <section class="grid grid-cols-1 gap-3 p-5">
-      <h1 class="text-xl font-semibold">Посты</h1>
+      <h1 class="text-xl font-semibold dark:text-white">Посты</h1>
       {% for i_post in post_list %}
-        <article class="flex flex-wrap px-5 py-10 h-100 bg-indigo-500 bg-cover" {% if i_post.picture %} style="background-image: url({{ i_post.picture.url }})" {% endif %}>
-          <div class="flex basis-1/2 justify-start bg-amber-300">
-            <span>{{ i_post.section.title }}</span>
+        {% set is_pictured = i_post.picture.name is ne '' %}
+        {% set is_small_card = (loop.index + 2) % 10 in (5, 6) %}
+        <article class="
+          relative
+          rounded-3xl
+          overflow-hidden
+          {% if is_small_card %}
+          	text-white
+          	bg-indigo-500
+          {% else %}
+          	bg-white
+          {% endif %} 
+          "
+        >
+          {% if is_small_card and is_pictured %}
+            {% include 'includes/main__article__post-picture.html' %}
+          {% endif %} 
+          
+          <div
+            class="
+            relative
+            z-20
+            flex
+            flex-col
+            px-8
+            py-10
+            h-100
+            break-words
+            "
+          >
+            <div class="flex justify-between items-center mb-8 text-xs font-medium">
+              <a
+                href="javascript:void(0)"
+                class="
+                px-4
+                py-2
+                rounded-lg
+                {% if is_pictured %}
+                  bg-gray-300/50
+                  hover:bg-gray-300/70
+                {% else %}
+                  bg-indigo-300/35
+                  hover:bg-indigo-300/75
+                {% endif %}
+              "
+              >
+                <p class="line-clamp-2 ">{{ i_post.section.title }}</p>
+              </a>
+              <p class="hidden sm:block">{{ i_post.created_at.date() }}</p>
+            </div>
+
+            <div class="mb-5 font-medium">
+              <h2 class="line-clamp-6">{{ i_post.title }}</h2>
+            </div>
+
+            <div class="block mt-auto text-xs sm:hidden">
+              <span>{{ i_post.created_at.date() }}</span>
+            </div>
+            {#          <img src="{{ i_post.picture.url }}" alt="{{ i_post.title }}" width="150" />#}
+            {#          <strong>{{ i_post.title }}</strong>#}
+            {#          <p class="font-serif text-3xl font-bold text-indigo-500 underline">#}
+            {#            {{ i_post.annotation }}#}
+            {#          </p>#}
+            {#          <small>{{ i_post.created_at }}</small>#}
+            {#          <hr />#}
+            {#          <span>{{ i_post.section.title }}</span>#}
+            {#          <hr />#}
+            {#          <a href="{{ i_post.get_absolute_url() }}">Читать</a>#}
           </div>
-          <div class="flex basis-1/2 justify-end bg-amber-700">
-            <span>{{ i_post.created_at.date() }}</span>
-          </div>
-{#          <img src="{{ i_post.picture.url }}" alt="{{ i_post.title }}" width="150" />#}
-{#          <strong>{{ i_post.title }}</strong>#}
-{#          <p class="font-serif text-3xl font-bold text-indigo-500 underline">#}
-{#            {{ i_post.annotation }}#}
-{#          </p>#}
-{#          <small>{{ i_post.created_at }}</small>#}
-{#          <hr />#}
-{#          <span>{{ i_post.section.title }}</span>#}
-{#          <hr />#}
-{#          <a href="{{ i_post.get_absolute_url() }}">Читать</a>#}
+
         </article>
       {% endfor %}
     </section>
