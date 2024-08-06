@@ -10,7 +10,7 @@
       <h1 class="text-xl font-semibold dark:text-white">Посты</h1>
       {% for i_post in post_list %}
         {% set is_pictured = i_post.picture.name is ne '' %}
-        {% set is_small_card = (loop.index + 2) % 10 in (5, 6) %}
+        {% set is_small_card = (loop.index0 + 2) is divisibleby(5) or (loop.index0 + 3) is divisibleby(5) %}
         <article class="
           relative
           rounded-3xl

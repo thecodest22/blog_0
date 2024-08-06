@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import date
 
-from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.contrib.postgres.indexes import BrinIndex
 from django.core.validators import FileExtensionValidator
 from django.db import models
@@ -10,6 +10,8 @@ from django.db.models.functions import Now, Upper
 from django.urls import reverse
 
 from treebeard.mp_tree import MP_Node
+
+User = get_user_model()
 
 
 def get_image_upload_path(instance: Post, filename: str) -> str:
@@ -81,13 +83,13 @@ class Post(models.Model):
     )
     author = models.ForeignKey(
         verbose_name='Автор',
-        to=settings.AUTH_USER_MODEL,
+        to=User,
         on_delete=models.PROTECT,
         related_name='created_posts'
     )
     updater = models.ForeignKey(
         verbose_name='Обновил',
-        to=settings.AUTH_USER_MODEL,
+        to=User,
         on_delete=models.PROTECT,
         related_name='updated_posts',
         blank=True,
