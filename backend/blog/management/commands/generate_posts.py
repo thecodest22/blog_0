@@ -77,16 +77,15 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        print('GETTING LOREM DATA...')
         random_lorem_data = self._get_data_for_posts(options['section_pks'],
                                                      options['author_pks'])
 
-        print('CREATING POSTS...')
+        self.stdout.write(self.style.NOTICE('Создаю посты в БД...'))
         Post.objects.bulk_create(
             (Post(**next(random_lorem_data)) for _ in range(options['count']))
         )
 
-        print('DONE!')
+        self.stdout.write(self.style.SUCCESS('Готово!'))
 
     def _get_data_for_posts(
             self,
@@ -151,6 +150,9 @@ class Command(BaseCommand):
              f' Возможные типы: {self.AVAILABLE_CONTENT_TYPES}')
 
         while True:
+            self.stdout.write(
+                self.style.NOTICE(f'Запрашиваю данные типа "{data_type}"')
+            )
             yield from (
                 self._fetch_lorem_data(
                     self.LOREM_URL, self.QUERY_PARAMS | {'type': data_type}
@@ -159,13 +161,16 @@ class Command(BaseCommand):
                 .split('\\n\\n')
             )
 
-    @staticmethod
-    def _fetch_lorem_data(url: str, query_params: dict[str, Any]) -> str:
+    def _fetch_lorem_data(self, url: str, query_params: dict[str, Any]) -> str:
         """
         Отправляет запрос на указанный адрес, извлекает данные, возвращает.
         """
 
         try:
+            full_url = f'{url}?{urlencode(query_params)}'
+            self.stdout.write(
+                self.style.NOTICE(f'Посылаю запрос на "{full_url}"...')
+            )
             with (urlopen(url + '?' + urlencode(query_params), timeout=5)
                   as response):
                 data = json_loads(response.read().decode('utf-8'))
@@ -178,8 +183,12 @@ class Command(BaseCommand):
                 if data['status'] != 'success':
                     raise URLError(data['text'])
         except URLError as e:
-            print(f'При обращении к API рыбного текста произошел обосрамс\n'
-                  f'Причина: "{e.reason}"')
+            self.stdout.write(
+                self.style.ERROR(f'При обращении к API рыбного текста'
+                                 f' произошел обосрамс\nПричина: "{e.reason}"')
+            )
             raise SystemExit('Завершение работы программы')
+
+        self.stdout.write(self.style.SUCCESS('Данные получены'))
 
         return data['text']
