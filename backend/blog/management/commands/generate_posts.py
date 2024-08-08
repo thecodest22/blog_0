@@ -54,7 +54,7 @@ class Command(BaseCommand):
     AVAILABLE_CONTENT_TYPES = ('title', 'paragraph')
 
     help = ('Генерирует заданное количество бессмысленных постов. Необходимо'
-            ' также указать, первичный(е) ключ(и) раздела(ов) и'
+            ' также указать первичный(е) ключ(и) раздела(ов) и'
             ' пользователя(ей). Если передано несколько первичных ключей,'
             ' выбор связанной записи будет случайным. Все записи с переданными'
             ' первичными ключами должны существовать.')
@@ -131,7 +131,7 @@ class Command(BaseCommand):
                 shorten(data['content'], randint(50, 100), placeholder='')
                 if choice(bool_choices) else ''
             )
-            data['status'] = choice(Post.StatusChoices.choices)[0]
+            data['status'] = choice(Post.StatusChoices.values)
             data['is_fixed'] = choice(bool_choices)
             data['author_id'] = choice(author_pks)
             data['section_id'] = choice(section_pks)
