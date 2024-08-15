@@ -10,6 +10,7 @@ from urllib.request import urlopen
 
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
+from django.utils import timezone
 
 from slugify import slugify
 
@@ -107,6 +108,7 @@ class Command(BaseCommand):
         - Аннотации генерируются из контента, но событие генерации рандомно.
         - Статус поста выбирается рандомно.
         - Картинки не генерируются из соображений места на диске.
+        - Явно ставится дата-время, иначе при bulk_create оно будет одинаковое.
         """
 
         titles = self._get_lorem_data('title')
@@ -131,6 +133,7 @@ class Command(BaseCommand):
                 shorten(data['content'], randint(50, 100), placeholder='')
                 if choice(bool_choices) else ''
             )
+            data['created_at'] = timezone.now()
             data['status'] = choice(Post.StatusChoices.values)
             data['is_fixed'] = choice(bool_choices)
             data['author_id'] = choice(author_pks)
