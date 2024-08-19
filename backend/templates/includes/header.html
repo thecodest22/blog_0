@@ -1,8 +1,17 @@
-<header class="bg-indigo-950 text-white sticky top-0 z-50">
-  <section class="max-w-8xl mx-auto p-4 flex justify-between items-center">
+<header class="text-white sticky top-0 z-50">
+  <section class="bg-indigo-950 relative max-w-8xl mx-auto p-4 flex justify-between items-center">
     <h1 class="text-xl font-semibold uppercase md:text-3xl">
       <a href="javascript:void(0)">Блог ни о чем</a>
     </h1>
+    
+    <div>
+      <button
+        type="button"
+        id="mobile-menu-button"
+        class="text-3xl sm:hidden focus:outline-none">
+        &#9776;
+      </button>
+    </div>
     
     {% include 'includes/header__navbar__mobile-menu_moving.html' %}
   </section>

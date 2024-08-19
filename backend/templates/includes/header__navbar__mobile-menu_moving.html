@@ -1,16 +1,26 @@
-<div>
-  <button
-    type="button"
-    id="mobile-menu-button"
-    class="text-3xl sm:hidden focus:outline-none">
-    &#9776;
-  </button>
-  
-  {# Что там с классом самого контейнера? #}
-  <nav class="hidden text-base sm:block sm:space-x-6">
-    <a href="javascript:void(0)" class="hover:opacity-90">Главная</a>
-    <a href="javascript:void(0)" class="hover:opacity-90">О нас</a>
-    <a href="javascript:void(0)" class="hover:opacity-90">Контакты</a>
-    <a href="javascript:void(0)" class="hover:opacity-90">Поиск</a>
-  </nav>
-</div>
+<nav
+  id="mobile-menu"
+  class="
+        absolute
+        left-0
+        bottom-px
+        -z-10
+        w-full
+        p-4
+        text-base
+        bg-inherit
+        transition-all
+        duration-500
+        transform
+        sm:block
+        sm:space-x-6
+  ">
+  <ul class="flex flex-col space-y-4">
+    <li><a href="javascript:void(0)" class="hover:opacity-90">Главная</a></li>
+    <li><a href="javascript:void(0)" class="hover:opacity-90">О нас</a></li>
+    <li><a href="javascript:void(0)" class="hover:opacity-90">Контакты</a></li>
+    <li><a href="javascript:void(0)" class="hover:opacity-90">Поиск</a></li>
+  </ul>
+</nav>
+
+<script src="{{ static('js/navbar_moving.js') }}" defer></script>
